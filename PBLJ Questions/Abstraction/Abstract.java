@@ -1,32 +1,37 @@
 package Abstraction;
 
-abstract  class Bank{
-    private static int bal=2000;
+abstract class Bank{
+    private static int balance = 1000;
 
-    public static int getBal() {
-        return bal;
+    public static int getBalance(){
+        return balance;
     }
-
-    public static void setBal(int balance) {
-        bal = balance;
-        System.out.println(bal);
+    public static void setBalance(int val){
+        balance = val;
     }
 }
 
-class SBI extends Bank{
-    public void debit(int amount){
-        int currentBalance=super.getBal();
-        currentBalance -= amount;
-        super.setBal(currentBalance);
+class Sbi extends Bank{
+    public void debit(int bal){
+        int currVal = super.getBalance();
+        currVal -= bal;
+        super.setBalance(currVal);
     }
-    public void credit(int amount){
+
+    public void credit(int bal){
+        int currVal = super.getBalance();
+        currVal += bal;
+        super.setBalance(currVal);
 
     }
 }
-
 public class Abstract {
-    public static void main(String[]args){
-        SBI sbi=new SBI();
-        sbi.debit(1000);
+    public static void main(String[] args) {
+        Sbi s = new Sbi();
+        s.debit(500);
+        s.credit(1000);
+        System.out.println(Sbi.getBalance());
+
+
     }
 }
