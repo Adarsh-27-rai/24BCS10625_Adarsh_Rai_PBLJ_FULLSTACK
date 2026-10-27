@@ -31,7 +31,5 @@ public class Abstract {
         s.debit(500);
         s.credit(1000);
         System.out.println(Sbi.getBalance());
-
-
     }
 }
